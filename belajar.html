@@ -10,7 +10,7 @@
 	<div id="app">
 		<div class="jumbotron d-flex">
 			<img src="logostransparent.png" style="height:5em;width:5em">
-			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris</h1>
+			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris SMA Logos</h1>
 		</div>
 		<hr>
 		<div class="container">
@@ -29,6 +29,11 @@
 						<option v-for="mapel in pelajaran.map(i=>i.toUpperCase()).sort()">{{mapel}}</option>
 					</select>
 					<br>
+					<!-- <p>Aplikasi Yang Digunakan</p> -->
+<!-- 					<div class="checkbox" v-for="device in alat">
+						<label><input type="checkbox" v-model="dataHariIni[i][device]" :value="device" class="mr-2">{{device}}</label>
+					</div> -->
+					<br>
 					<p>Keterangan</p>
 					<textarea class="form-control" style="height:200px" placeholder="Keterangan" v-model="dataHariIni[i].ket"/></textarea>
 					<br>
@@ -39,7 +44,7 @@
 			</div>
 		</div>
 		<div style="position:fixed;bottom:0;right:0">
-			<button class="btn btn-primary mb-2 mr-2" style="border-radius:100%;width:3em;height:3em;" @click="tambah"><h2>+</h2></button>
+			<button class="btn btn-primary mb-2 mr-2" style="border-radius:100%;width:4em;height:4em;" @click="tambah"><h2>+</h2></button>
 		</div>
 	</div>
 

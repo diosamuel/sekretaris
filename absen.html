@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sekretaris</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<div class="jumbotron d-flex">
+			<img src="logostransparent.png" style="height:5em;width:5em">
+			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris SMA Logos</h1>
+		</div>
+		<div class="container">
+			<h2>Siapa yaa yg absen hari ini?</h2>
+			<h4>{{date}}</h4>
+			<p>centang kotak siswa jika hadir</p>
+			<p>klik tombol ini jika semua hadir</p>
+			<button @click='centangSemua' class="btn btn-primary">Semua hadir!</button>
+			<br>
+			<br>
+			<table class="table table-striped">
+			  <thead>
+			    <tr>
+			      <th scope="col">#</th>
+			      <th scope="col">Nama</th>
+			      <th scope="col">Absen</th>
+			      <th scope="col">Keterangan</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr  v-for="(murid,i) in siswa">
+			      <th scope="row">{{i+1}}</th>
+			      <td>{{murid.nama[0].toUpperCase()+murid.nama.slice(1)}}</td>
+				  <td><input type="checkbox" v-model="murid.absen"></td>
+				  <td v-if="!murid.absen"><input type="text" v-model="murid.ket" placeholder="Keterangan"></td>
+				  <td v-else><p>Hadir!</p></td>
+			    </tr>
+			  </tbody>
+			</table>
+			<div class="mt-5 mb-5">
+				<button class="btn btn-info" @click="saveAbsen">Kirim Ke Whatsapp</button>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>
