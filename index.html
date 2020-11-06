@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sekretaris</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+</head>
+<body>
+	<div id="app">
+		<div class="jumbotron">
+			<h1>Sekretaris</h1>
+		</div>
+		<hr>
+		<div class="container">
+			<h2>Belajar apa hari ini?</h2>
+			<h4>{{date}}</h4>
+			<p>Tekan tombol + dipojok bawah</p>
+			<br>
+			<br>
+			<div class="card" v-for="(len,i) in dataHariIni">
+				<div class="card-header bg-primary">
+					<h2 class="text-light">{{i+1}}</h2>
+				</div>
+				<div class="card-body">
+					<p>Mata Pelajaran</p>
+					<select class="form-control col-md-6" v-model="dataHariIni[i].class">
+						<option v-for="mapel in pelajaran.map(i=>i.toUpperCase()).sort()">{{mapel}}</option>
+					</select>
+					<br>
+					<p>Keterangan</p>
+					<textarea class="form-control" style="height:200px" placeholder="Keterangan" v-model="dataHariIni[i].ket"/></textarea>
+					<br>
+				</div>
+			</div>
+			<div v-if="dataHariIni.length>0" class="m-5">
+				<button class="btn btn-info" @click="save">Kirim Ke Whatsapp</button>
+			</div>
+		</div>
+		<div style="position:fixed;bottom:0;right:0">
+			<button class="btn btn-primary" style="border-radius:100%;width:4em;height:4em" @click="tambah"><h2>+</h2></button>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</html>
