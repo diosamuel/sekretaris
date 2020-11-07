@@ -3,6 +3,7 @@ vm=new Vue({
 	data:{
 		dataHariIni:[],
 		pelajaran:[
+			"bahasa indonesia",
 			"kimia",
 			"fisika",
 			"biologi",

@@ -8,8 +8,9 @@
 </head>
 <body>
 	<div id="app">
-		<div class="jumbotron">
-			<h1>Sekretaris</h1>
+		<div class="jumbotron d-flex">
+			<img src="logostransparent.png" style="height:5em;width:5em">
+			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris</h1>
 		</div>
 		<hr>
 		<div class="container">
@@ -33,12 +34,12 @@
 					<br>
 				</div>
 			</div>
-			<div v-if="dataHariIni.length>0" class="m-5">
+			<div v-if="dataHariIni.length>0" class="mt-5 mb-5">
 				<button class="btn btn-info" @click="save">Kirim Ke Whatsapp</button>
 			</div>
 		</div>
 		<div style="position:fixed;bottom:0;right:0">
-			<button class="btn btn-primary" style="border-radius:100%;width:4em;height:4em" @click="tambah"><h2>+</h2></button>
+			<button class="btn btn-primary mb-2 mr-2" style="border-radius:100%;width:3em;height:3em;" @click="tambah"><h2>+</h2></button>
 		</div>
 	</div>
 
