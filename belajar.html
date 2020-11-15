@@ -14,23 +14,26 @@
 		</div>
 		<hr>
 		<div class="container">
-			<h2>Belajar apa hari ini?</h2>
+			<h1>Belajar apa hari ini?</h1>
 			<h4>{{date}}</h4>
 			<p>Tekan tombol + dipojok bawah</p>
 			<br>
 			<br>
+			<div v-if="dataHariIni.length<1">
+				<h3>Kosong :(</h3>
+			</div>
 			<div class="card" v-for="(len,i) in dataHariIni">
 				<div class="card-header bg-primary">
-					<h2 class="text-light">{{i+1}}</h2>
+					<h2 class="text-light">Pelajaran ke {{i+1}} : {{ dataHariIni[i].class }}</h2>
 				</div>
 				<div class="card-body">
 					<p>Mata Pelajaran</p>
 					<select class="form-control col-md-6" v-model="dataHariIni[i].class">
 						<option v-for="mapel in pelajaran.map(i=>i.toUpperCase()).sort()">{{mapel}}</option>
 					</select>
-					<br>
-					<!-- <p>Aplikasi Yang Digunakan</p> -->
-<!-- 					<div class="checkbox" v-for="device in alat">
+					<br><!-- 
+					<p>Aplikasi Yang Digunakan</p>
+					<div class="checkbox" v-for="device in alat">
 						<label><input type="checkbox" v-model="dataHariIni[i][device]" :value="device" class="mr-2">{{device}}</label>
 					</div> -->
 					<br>
@@ -46,6 +49,7 @@
 		<div style="position:fixed;bottom:0;right:0">
 			<button class="btn btn-primary mb-2 mr-2" style="border-radius:100%;width:4em;height:4em;" @click="tambah"><h2>+</h2></button>
 		</div>
+
 	</div>
 
 </body>

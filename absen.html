@@ -15,12 +15,13 @@
 		<div class="container">
 			<h2>Siapa yaa yg absen hari ini?</h2>
 			<h4>{{date}}</h4>
-			<p>centang kotak siswa jika hadir</p>
-			<p>klik tombol ini jika semua hadir</p>
+			<p>centang kotak siswa jika hadir<br>klik tombol ini jika semua hadir</p>
+
 			<button @click='centangSemua' class="btn btn-primary">Semua hadir!</button>
 			<br>
 			<br>
-			<table class="table table-striped">
+			<div class="table-responsive">
+			<table class="table table-striped" id="table">
 			  <thead>
 			    <tr>
 			      <th scope="col">#</th>
@@ -39,10 +40,29 @@
 			    </tr>
 			  </tbody>
 			</table>
+			</div>
 			<div class="mt-5 mb-5">
 				<button class="btn btn-info" @click="saveAbsen">Kirim Ke Whatsapp</button>
 			</div>
 		</div>
+
+		<div class="container">
+			<h1>Ada Listnya?</h1>
+			<h3>Pastekan kesini</h3>
+			<textarea class="form-control" style="height:500px" v-model="listAbsen" placeholder="contoh:
+abdul
+atika
+virdio
+intan
+amanda"></textarea>
+			<br>
+			<div class="btn-group mb-5">
+				<a href="#table" class="btn btn-primary" @click="prosesList">Absen!</a>
+				<button @click='listAbsen=""' class="btn btn-danger">Reset</button>
+			</div>
+			<br>
+		</div>
+
 	</div>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>

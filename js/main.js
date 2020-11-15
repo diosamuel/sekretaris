@@ -1,6 +1,9 @@
 vm=new Vue({
 	el:'#app',
 	data:{
+    listAbsen:'',
+    nameError:[],
+    pos:0,
 		dataHariIni:[],
 		pelajaran:[
 			"bahasa indonesia",
@@ -100,12 +103,12 @@ vm=new Vue({
     "ket": ""
   },
   {
-    "nama": "m.faidil",
+    "nama": "m.faidhil iman",
     "absen": false,
     "ket": ""
   },
   {
-    "nama": "m.farras",
+    "nama": "m.farras muhadzib",
     "absen": false,
     "ket": ""
   },
@@ -172,8 +175,9 @@ vm=new Vue({
 	methods:{
 		tambah(){
 			this.dataHariIni.push({
-				id:this.dataHariIni.length
+				id:this.pos
 			})	
+      this.pos++
 		},
 		save(){
 			hasContent = this.dataHariIni.filter(x=>!x.ket==false)
@@ -199,18 +203,31 @@ vm=new Vue({
 					hadir++
 				}else{
 					tidakHadir.pos++
-					tidakHadir.nama.push({nama:x.nama,ket:x.ket})
+					tidakHadir.nama.push({nama:x.nama[0].toUpperCase()+x.nama.slice(1),ket:x.ket})
 				}
 			})
 
 			pesan+=`\nHadir : ${hadir}\n`
 			pesan+=`Tidak Hadir : ${tidakHadir.pos}\n\n`
-			pesan+=`Absen :`
+			pesan+=tidakHadir.nama.length<=0?'':'Absen :'
 			tidakHadir.nama.forEach(x=>{
-				pesan+=`\n${x.nama} (${x.ket?x.ket:'tanpa keterangan'})`
+				pesan+=`\n${x.nama} (${x.ket?x.ket:'Tanpa Keterangan'})`
 			})
 			location.href="whatsapp://send?text="+encodeURIComponent(pesan)
+      console.log(pesan)
 		},
+    prosesList(){
+      listAbsen = this.listAbsen.split(/\n/).map(x=>x.toLowerCase()).sort()
+      this.siswa.forEach(x=>{
+        listAbsen.forEach(y=>{
+          if(y.includes(x.nama)){
+            x.absen=true
+          }
+        })
+      })
+      // console.log(listAbsen)
+    },
+    //util
 		centangSemua(){
 			this.siswa=this.siswa.map(x=>a={nama:x.nama,absen:true,ket:''})
 		}
