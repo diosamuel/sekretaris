@@ -118,6 +118,11 @@ vm=new Vue({
     "ket": ""
   },
   {
+    "nama":"nafilah",
+    "absen": false,
+    "ket" :""
+  },
+  {
     "nama": "rahma",
     "absen": false,
     "ket": ""
