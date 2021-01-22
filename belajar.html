@@ -10,11 +10,11 @@
 	<div id="app">
 		<div class="jumbotron d-flex">
 			<img src="logostransparent.png" style="height:5em;width:5em">
-			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris SMA Logos</h1>
+			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris</h1>
 		</div>
-		<hr>
 		<div class="container">
-			<h1>Belajar apa hari ini?</h1>
+			<h2>{{katanya}}</h2>
+			<hr>
 			<h4>{{date}}</h4>
 			<p>Tekan tombol + dipojok bawah</p>
 			<br>
@@ -44,6 +44,11 @@
 			</div>
 			<div v-if="dataHariIni.length>0" class="mt-5 mb-5">
 				<button class="btn btn-info" @click="save">Kirim Ke Whatsapp</button>
+				<button class="btn btn-info" onclick="copythe()">Copy to Clipboard</button>
+				<div class="container mb-5 mt-5">
+					<textarea class="form-control" style="height:500px" v-model='pesanBelajar' id="myInput" placeholder="Kalau tombol Whatsapp error, salin ini yak atau teken copy to clipboard ">
+					</textarea>
+				</div>
 			</div>
 		</div>
 		<div style="position:fixed;bottom:0;right:0">
@@ -53,6 +58,17 @@
 	</div>
 
 </body>
+<script>
+function copythe() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+
+  alert('Copied!')
+}
+
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.js"></script>
 <script type="text/javascript" src="js/vue.js"></script>

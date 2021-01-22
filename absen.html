@@ -10,10 +10,11 @@
 	<div id="app">
 		<div class="jumbotron d-flex">
 			<img src="logostransparent.png" style="height:5em;width:5em">
-			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris SMA Logos</h1>
+			<h1 style="position:relative;top:10px;margin-left:1em">Sekretaris</h1>
 		</div>
 		<div class="container">
-			<h2>Siapa yaa yg absen hari ini?</h2>
+			<h2>{{katanya}}</h2>
+			<hr>
 			<h4>{{date}}</h4>
 			<p>centang kotak siswa jika hadir<br>klik tombol ini jika semua hadir</p>
 
@@ -35,7 +36,7 @@
 			      <th scope="row">{{i+1}}</th>
 			      <td>{{murid.nama[0].toUpperCase()+murid.nama.slice(1)}}</td>
 				  <td><input type="checkbox" v-model="murid.absen"></td>
-				  <td v-if="!murid.absen"><input type="text" v-model="murid.ket" placeholder="Keterangan"></td>
+				  <td v-if="!murid.absen"><input type="text" v-model="murid.ket" placeholder="Keterangan" class="form-control"></td>
 				  <td v-else><p>Hadir!</p></td>
 			    </tr>
 			  </tbody>
@@ -43,12 +44,17 @@
 			</div>
 			<div class="mt-5 mb-5">
 				<button class="btn btn-info" @click="saveAbsen">Kirim Ke Whatsapp</button>
+				<button class="btn btn-info" onclick="copythe()">Copy to Clipboard</button>
+			</div>
+			<div class="container mb-5">
+				<textarea class="form-control" style="height:500px" v-model='pesanAbsen' id="myInput" placeholder="Kalau tombol Whatsapp error, salin ini yak atau teken copy to clipboard ">
+				</textarea>
 			</div>
 		</div>
 
-		<div class="container">
+<!-- 		<div class="container">
 			<h1>Ada Listnya?</h1>
-			<h3>Pastekan kesini</h3>
+			<p>Paste kesini</p>
 			<textarea class="form-control" style="height:500px" v-model="listAbsen" placeholder="contoh:
 abdul
 atika
@@ -61,10 +67,21 @@ amanda"></textarea>
 				<button @click='listAbsen=""' class="btn btn-danger">Reset</button>
 			</div>
 			<br>
-		</div>
+		</div> -->
 
 	</div>
 </body>
+<script>
+function copythe() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+
+  alert('Copied!')
+}
+
+</script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript" src="https://momentjs.com/downloads/moment-with-locales.js"></script>
 <script type="text/javascript" src="js/vue.js"></script>
