@@ -168,7 +168,7 @@ vm = new Vue({
                 "ket": ""
             }
         ],
-        katakata:["Semangat donggggg",'Lu udh ngerjain tugas?','Haiiiii apkabar','tidur besok mulung','Siapa aja yg absen','Tadi belajar apaan dah'],
+        katakata:['Lu udh ngerjain tugas?','Hai apa kabar','Semangat AKM','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔','hwhwhwhw'],
         katanya:""
     },
     mounted() {
@@ -249,7 +249,6 @@ vm = new Vue({
                 absen: true,
                 ket: ''
             })
-        },
-        kataMutiara(){}
+        }
     },
 })
