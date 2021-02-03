@@ -195,11 +195,12 @@ vm = new Vue({
             pesan += `Agenda KBM Hari ${moment().format('dddd, LL')} :\n`
             hasContent.forEach(x => {
                 pesan += "\n"
-                pesan += `*${x.class}* : ${x.ket}`
+                pesan += `*${x.class}* : ${x.ket}, ${eval(x.tugas)?'+ '+x.judulTugas:'(tidak ada tugas)'}`
                 pesan += "\n"
             })
             location.href = "whatsapp://send?text=" + encodeURIComponent(pesan)
             this.pesanBelajar=pesan
+            console.log(pesan)
         },
         saveAbsen() {
             var pesan = ""
