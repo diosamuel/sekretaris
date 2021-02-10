@@ -168,7 +168,7 @@ vm = new Vue({
                 "ket": ""
             }
         ],
-        katakata:['Lu udh ngerjain tugas?','Hai apa kabar','Semangat AKM','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔','hwhwhwhw'],
+        katakata:['Lu udh ngerjain tugas?','Hai apa kabar','Semangat AKM','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔','Sedia payung sebelum hujan','Blm cuci piring pasti'],
         katanya:""
     },
     mounted() {
@@ -243,6 +243,13 @@ vm = new Vue({
             })
             // console.log(listAbsen)
         },
+        deleteMapel(id){
+            isDeleteMapel = confirm(`Hapus ${this.dataHariIni.filter(x=>x.id==id)[0].class?this.dataHariIni.filter(x=>x.id==id)[0].class:''} ?`)
+            if(isDeleteMapel){
+                console.log(this.dataHariIni.map((x,y)=>x.id=y))
+                this.dataHariIni=this.dataHariIni.filter(x=>x.id!==id)
+            }    
+        },
         //util
         centangSemua() {
             this.siswa = this.siswa.map(x => a = {
@@ -252,4 +259,9 @@ vm = new Vue({
             })
         }
     },
+    watch:{
+        dataHariIni(x){
+            this.dataHariIni.map((x,y)=>x.id=y)
+        }
+    }
 })

@@ -23,8 +23,10 @@
 				<h3>Kosong :(</h3>
 			</div>
 			<div class="card" v-for="(len,i) in dataHariIni">
-				<div class="card-header bg-primary">
-					<h2 class="text-light">Pelajaran ke {{i+1}} : {{ dataHariIni[i].class }}</h2>
+				<div class="card-header bg-light border border-primary">
+					<h2 class="text-primary">Pelajaran ke {{i+1}} : {{ dataHariIni[i].class }}</h2>
+					<br>
+					<button @click="deleteMapel(i)" class="btn btn-small btn-outline-danger">Hapus</button>
 				</div>
 				<div class="card-body">
 					<p>Mata Pelajaran</p>
@@ -36,26 +38,25 @@
 					<div class="checkbox" v-for="device in alat">
 						<label><input type="checkbox" v-model="dataHariIni[i][device]" :value="device" class="mr-2">{{device}}</label>
 					</div> -->
-					<br>
 					<p>Tugas</p>
 					<div>
 						<div class="form-check">
-						  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="false" checked  v-model="dataHariIni[i].tugas">
-						  <label class="form-check-label" for="exampleRadios1">
+						  <input class="form-check-input" type="radio" :name=i :id="'for'+i" value="false" checked  v-model="dataHariIni[i].tugas">
+						  <label class="form-check-label" :for="'for'+i">
 						    Tidak ada
 						  </label>
 						</div>
 						<div class="form-check">
-						  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="true" v-model="dataHariIni[i].tugas">
-						  <label class="form-check-label" for="exampleRadios2">
+						  <input class="form-check-input" type="radio" :name=i :id="'_for'+i" value="true" v-model="dataHariIni[i].tugas">
+						  <label class="form-check-label" :for="'_for'+i">
 						    Ada
 						  </label>
 						</div>
-						<input v-if="dataHariIni[i].tugas=='true'" v-model="dataHariIni[i].judulTugas" placeholder="latihan soal...">
+						<textarea v-if="dataHariIni[i].tugas=='true'" v-model="dataHariIni[i].judulTugas" placeholder="latihan soal..." class="form-control  col-md-6"></textarea>
 					</div>
+					<br>
 					<p>Keterangan</p>
 					<textarea class="form-control" style="height:200px" placeholder="Keterangan" v-model="dataHariIni[i].ket"/></textarea>
-					<br>
 				</div>
 			</div>
 			<div v-if="dataHariIni.length>0" class="mt-5 mb-5">
