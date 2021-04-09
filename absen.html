@@ -44,30 +44,14 @@
 			</div>
 			<div class="mt-5 mb-5">
 				<button class="btn btn-info" @click="saveAbsen">Kirim Ke Whatsapp</button>
-				<button class="btn btn-info" onclick="copythe()">Copy to Clipboard</button>
+				<button class="btn btn-primary" onclick="copythe()">Copy to Clipboard</button>
+				<button class="btn btn-outline-info" @click="createList">Bikin list!</button>
 			</div>
-			<div class="container mb-5">
+			<div class="mb-5">
 				<textarea class="form-control" style="height:500px" v-model='pesanAbsen' id="myInput" placeholder="Kalau tombol Whatsapp error, salin ini yak atau teken copy to clipboard ">
 				</textarea>
 			</div>
 		</div>
-
-<!-- 		<div class="container">
-			<h1>Ada Listnya?</h1>
-			<p>Paste kesini</p>
-			<textarea class="form-control" style="height:500px" v-model="listAbsen" placeholder="contoh:
-abdul
-atika
-virdio
-intan
-amanda"></textarea>
-			<br>
-			<div class="btn-group mb-5">
-				<a href="#table" class="btn btn-primary" @click="prosesList">Absen!</a>
-				<button @click='listAbsen=""' class="btn btn-danger">Reset</button>
-			</div>
-			<br>
-		</div> -->
 
 	</div>
 </body>

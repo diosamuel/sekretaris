@@ -33,11 +33,7 @@
 					<select class="form-control col-md-6" v-model="dataHariIni[i].class">
 						<option v-for="mapel in pelajaran.map(i=>i.toUpperCase()).sort()">{{mapel}}</option>
 					</select>
-					<br><!-- 
-					<p>Aplikasi Yang Digunakan</p>
-					<div class="checkbox" v-for="device in alat">
-						<label><input type="checkbox" v-model="dataHariIni[i][device]" :value="device" class="mr-2">{{device}}</label>
-					</div> -->
+					<br>
 					<p>Tugas</p>
 					<div>
 						<div class="form-check">
@@ -56,7 +52,7 @@
 					</div>
 					<br>
 					<p>Keterangan</p>
-					<textarea class="form-control" style="height:200px" placeholder="Keterangan" v-model="dataHariIni[i].ket"/></textarea>
+					<textarea class="form-control" style="height:200px" placeholder="Membahas..." v-model="dataHariIni[i].ket"/></textarea>
 				</div>
 			</div>
 			<div v-if="dataHariIni.length>0" class="mt-5 mb-5">
