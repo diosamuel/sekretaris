@@ -143,11 +143,6 @@ vm = new Vue({
                 "ket": ""
             },
             {
-                "nama": "sudaffa",
-                "absen": false,
-                "ket": ""
-            },
-            {
                 "nama": "thio",
                 "absen": false,
                 "ket": ""
@@ -168,7 +163,7 @@ vm = new Vue({
                 "ket": ""
             }
         ],
-        katakata:['udah ngerjain tugas?','Hai apa kabarr!','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔'],
+        katakata:['udah ngerjain tugas?','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔'],
         katanya:""
     },
     mounted() {
