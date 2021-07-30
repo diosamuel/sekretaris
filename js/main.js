@@ -26,6 +26,7 @@ vm = new Vue({
             "bk",
             "sejarah",
             "tik",
+            "kwu"
         ],
         siswa: [{
                 "nama": "abdul",
