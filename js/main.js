@@ -200,7 +200,7 @@ vm = new Vue({
         },
         saveAbsen() {
             var pesan = ""
-            pesan += `*Kehadiran (${moment().format('dddd, LL')}) kelas 11 IPA SMA PLUS LOGOS :*\n`
+            pesan += `*Kehadiran (${moment().format('dddd, LL')}) kelas 12 IPA SMA PLUS LOGOS :*\n`
             hadir = 0
             tidakHadir = {
                 pos: 0,
