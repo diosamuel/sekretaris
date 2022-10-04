@@ -164,7 +164,7 @@ vm = new Vue({
                 "ket": ""
             }
         ],
-        katakata:['inget, udah mau lulus','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔'],
+        katakata:['😏Inget, udah mau lulus','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔','Udah piket hari ini?'],
         katanya:""
     },
     mounted() {
@@ -261,14 +261,6 @@ vm = new Vue({
                 })
             }
         },
-        createList(){
-            lists=""
-            this.siswa.forEach((_,i)=>{
-                lists+=`${i+1}.\n`
-            })
-            this.pesanAbsen=lists
-
-        }
     },
     watch:{
         dataHariIni(x){
