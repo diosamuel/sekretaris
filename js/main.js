@@ -164,7 +164,7 @@ vm = new Vue({
                 "ket": ""
             }
         ],
-        katakata:['😏Inget, udah mau lulus','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔'],
+        katakata:['😏Inget, udah mau lulus','😱 Siapa yg absen hari ini?','Tadi belajar apa ya? 🤔','Udah piket hari ini?'],
         katanya:""
     },
     mounted() {
