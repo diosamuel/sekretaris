@@ -247,6 +247,13 @@ vm = new Vue({
         },
         //util
         centangSemua() {
+            if(document.getElementById("btn-hadir").innerText=='Semua hadir!'){
+                document.getElementById("btn-hadir").innerText='Semua tidak hadir!';
+            }
+            else{
+                document.getElementById("btn-hadir").innerText='Semua hadir!';
+            }
+
             if(this.siswa.every(x=>x.absen==true)){
                 this.siswa = this.siswa.map(x => a = {
                     nama: x.nama,
